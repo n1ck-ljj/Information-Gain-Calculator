@@ -12,6 +12,7 @@ def target_entropy():
     a = log2_calculator(x)
     b = log2_calculator(y)
     result = -(x*a)-(y*b)
+    print (result)
     return result
 
 def entropy_branch():
@@ -27,13 +28,20 @@ def entropy_branch():
         previous_output = following_output
         counter = counter + 1
     return following_output
+    print(following_output)
 
 def information_gain():
     gain = target_entropy() - entropy_branch()
     return gain
 
 def main():
-    print(information_gain())
+    x = int(input("Select wanted calculation\n1. Target Entropy.\n2. Entropy of a branch.\n3. Information gain.\n"))
+    if x == 1:
+        target_entropy()
+    elif x == 2:
+        entropy_branch()
+    elif x == 3:
+        print("Information Gain: ", information_gain())
 
 if __name__ == "__main__":
     main()
